@@ -4,17 +4,15 @@ import os
 from models import Contact
 from src.connect_db import MongoDBConnection
 from faker import Faker
-from dotenv import load_dotenv
+from src.load_dotenv import load_dotenv
 
+load_dotenv()
 
-current_directory = os.path.dirname(os.path.abspath(__file__))
-dotenv_path = os.path.abspath(os.path.join(current_directory, '../../.env'))
-load_dotenv(dotenv_path=dotenv_path)
-
+# mongoDB connection
 db_connection = MongoDBConnection()
 db_connection.open_connection()
 
-# Nawiązanie połączenia z RabbitMQ
+# RabbitMQ connection
 credentials = pika.PlainCredentials('guest', 'guest')
 connection = pika.BlockingConnection(pika.ConnectionParameters(host=os.getenv('HOST'),
                                                                port=5672,

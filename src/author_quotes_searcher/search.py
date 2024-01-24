@@ -1,5 +1,5 @@
 from models import Quote, Author
-from connect_db import MongoDBConnection
+from src.connect_db import MongoDBConnection
 
 
 def search_quotes():

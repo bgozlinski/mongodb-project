@@ -7,7 +7,7 @@ class MongoDBConnection:
     def __init__(self):
         # Get the current directory
         current_directory = os.path.dirname(os.path.abspath(__file__))
-        dotenv_path = os.path.abspath(os.path.join(current_directory, '../../.env'))
+        dotenv_path = os.path.abspath(os.path.join(current_directory, '../.env'))
         load_dotenv(dotenv_path=dotenv_path)
 
         self.db_name = os.getenv('DBNAME')

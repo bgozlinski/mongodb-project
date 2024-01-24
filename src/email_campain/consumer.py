@@ -3,7 +3,7 @@ import pika
 import json
 from models import Contact
 from src.connect_db import MongoDBConnection
-from dotenv import load_dotenv
+from src.load_dotenv import load_dotenv
 
 
 def email_stub():
@@ -21,9 +21,7 @@ def callback(ch, method, properties, body):
         print(f"Message send do: {contact.fullname}")
 
 
-current_directory = os.path.dirname(os.path.abspath(__file__))
-dotenv_path = os.path.abspath(os.path.join(current_directory, '../../.env'))
-load_dotenv(dotenv_path=dotenv_path)
+load_dotenv()
 
 # mongoDB connection
 db_connection = MongoDBConnection()

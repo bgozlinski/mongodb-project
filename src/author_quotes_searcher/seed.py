@@ -1,5 +1,4 @@
-from connect_db import MongoDBConnection
-from mongoengine import connect
+from src.connect_db import MongoDBConnection
 from models import Author, Quote
 import json
 
