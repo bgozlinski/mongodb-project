@@ -5,7 +5,11 @@ from mongoengine import connect, disconnect
 
 class MongoDBConnection:
     def __init__(self):
-        load_dotenv(dotenv_path="../.env")
+        # Get the current directory
+        current_directory = os.path.dirname(os.path.abspath(__file__))
+        dotenv_path = os.path.abspath(os.path.join(current_directory, '../../.env'))
+        load_dotenv(dotenv_path=dotenv_path)
+
         self.db_name = os.getenv('DBNAME')
         self.host = os.getenv('HOST')
         self.username = os.getenv('USER_NAME')
